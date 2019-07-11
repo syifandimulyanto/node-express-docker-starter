@@ -1,0 +1,46 @@
+version: "2.1"
+
+services: 
+  # MySQL Service
+  dbmysql:
+    image: mysql:5.7.22
+    container_name: dbmysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: node-starter
+      MYSQL_ROOT_PASSWORD: node-password
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    healthcheck:
+      test: "exit 0"   
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - app-network
+
+  # App Service
+  nodeapp:
+    build: .
+    depends_on:
+      dbmysql:
+        condition: service_healthy
+    entrypoint:
+      - /usr/local/bin/docker-entrypoint.sh
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
+
+#Volumes
+volumes:
+  dbdata:
+    driver: local
