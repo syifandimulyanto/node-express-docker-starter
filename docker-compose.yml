@@ -32,6 +32,8 @@ services:
       - /usr/local/bin/docker-entrypoint.sh
     ports:
       - "3000:3000"
+    volumes:
+      - ./:/var/www
     networks:
       - app-network
 

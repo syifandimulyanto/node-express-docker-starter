@@ -1,8 +1,8 @@
 {
     "apps" : [{
-        "name"        : "app",
-        "script"      : "./bin/www",
-        "exec_mode"   : "fork",
+        "name" : "app",
+        "script" : "./bin/www",
+        "exec_mode" : "fork",
         "exec_interpreter": "babel-node",
         "instances" : 1,
         "merge_logs" :true,

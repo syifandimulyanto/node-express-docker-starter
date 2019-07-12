@@ -6,6 +6,7 @@ WORKDIR /var/www
 # Install dependencies
 RUN npm install pm2 -g
 RUN npm install babel-cli -g
+RUN npm install knex -g
 RUN apt-get update && apt-get install -y \
   vim \
   nano
