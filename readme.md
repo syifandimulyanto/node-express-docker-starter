@@ -8,11 +8,7 @@ we don't need to work hard, to do the initial configuration
 
 ### Migrations
 
-#### Create Table
-
-```bash
-$ knex migrate:make create-<example>-table
-```
+ 
 
 #### Run Migrations
 

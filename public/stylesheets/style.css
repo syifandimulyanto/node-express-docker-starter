@@ -6,3 +6,23 @@ body {
 a {
   color: #00B7FF;
 }
+
+.form-register {
+  width: 100%;
+  max-width: 330px;
+  margin: auto;
+  padding: 15px;
+}
+
+.form-register img {
+  max-width: 80px;
+  vertical-align: center;
+}
+
+.form-register h3 {
+  margin-top: 20px;
+}
+
+.form-register .form {
+  margin-top: 50px;
+}

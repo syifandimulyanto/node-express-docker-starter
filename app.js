@@ -11,6 +11,10 @@ var indexRouter = require('./app/routes/index');
 var usersRouter = require('./app/routes/users');
 var categoriesRouter = require('./app/routes/categories');
 
+// route with views
+const registerRoute = require('@route/auth/register');
+const loginRoute = require('@route/auth/login')
+
 var app = express();
 
 // view engine setup
@@ -26,6 +30,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/categories', categoriesRouter);
+
+// route with views
+app.use('/register', registerRoute);
+app.use('/login', loginRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
